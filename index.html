@@ -1,30 +1,29 @@
-<!doctype HTML>
+<!doctype html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <title>AR Demo</title>
     </head>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
+    
     <body style='margin: 0px; overflow: hidden;'>
 
         <!-- A-Frame Scene with AR.js -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
-            <!-- Define assets (optional, if you want to display something like a 3D model) -->
+            <!-- Define assets -->
             <a-assets>
+                <!-- Optional, add a 3D asset if needed -->
                 <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-                <!-- Hier kannst du ein Bild oder ein anderes Asset einbinden -->
             </a-assets>
 
-            <!-- Marker mit einem blauen Block -->
+            <!-- Marker with blue box -->
             <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
-                <!-- AR-Inhalt, z.B. ein blauer Würfel, der auf dem Marker erscheint -->
                 <a-box position="0 0.5 0" color="blue" scale="0.5 0.5 0.5"></a-box>
             </a-marker>
 
-            <!-- Kamera -->
+            <!-- Camera -->
             <a-entity camera></a-entity>
 
         </a-scene>
