@@ -1,32 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <title>AR Demo</title>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Custom AR Marker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
-    
-    <body style='margin: 0px; overflow: hidden;'>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Dein eigener Marker mit blauem Würfel -->
+      <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
+        <a-box position="0 0.5 0" color="blue" scale="1 1 1"></a-box>
+      </a-marker>
 
-        <!-- A-Frame Scene with AR.js -->
-        <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-
-            <!-- Define assets -->
-            <a-assets>
-                <!-- Optional, add a 3D asset if needed -->
-                <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-            </a-assets>
-
-            <!-- Marker with blue box -->
-            <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
-                <a-box position="0 0.5 0" color="blue" scale="0.5 0.5 0.5"></a-box>
-            </a-marker>
-
-            <!-- Camera -->
-            <a-entity camera></a-entity>
-
-        </a-scene>
-
-    </body>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
