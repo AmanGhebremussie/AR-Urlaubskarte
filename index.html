@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -6,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
-    
     <script src="script.js" defer></script>
   </head>
-  <body style="margin: 0; overflow: hidden;">
+
+    <body style="margin: 0; overflow: hidden;">
+
     <a-scene embedded arjs="sourceType: webcam;">
       
-              <!-- Bild für Stern-Textur -->
+      <!-- Hier wird die Bilddatei für die Sterne vorgeladen -->
       <a-assets>
         <img id="starImg" src="https://amanghebremussie.github.io/AR-Urlaubskarte/2beacba73c69371c1acc82d9cf2d6424.png">
-    </a-assets>
-
-      <!-- Marker -->
+      </a-assets>
+  
+      <!-- Marker-Erkennung: Dieses Element aktiviert AR-Inhalte, wenn der "Hiro"-Marker erkannt wird. -->
       <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
       
-        <!-- Zentrale Fläche (deine Karte) -->
-        <a-plane color="blue" material= "transparent: true; opacity: 0.8" height="1" width="1" position="0 0 0" rotation="-90 0 0"></a-plane>
+        <a-plane 
+          color="blue" 
+          material="transparent: true; opacity: 0.8" 
+          height="1" 
+          width="1" 
+          position="0 0 0" 
+          rotation="-90 0 0">
+        </a-plane>
         
-        <!-- Container für Sterne -->
+        <!-- Container-Element, indem die Sterne eingefügt werden. -->
         <a-entity id="stars-container"></a-entity>
-
+  
       </a-marker>
-
+  
+      <!-- Kamera für die AR-Szene. Wird benötigt, damit AR.js das Bild der Webcam mit Marker-Erkennung verarbeitet. -->
       <a-entity camera></a-entity>
+  
     </a-scene>
   </body>
-</html>
+  
