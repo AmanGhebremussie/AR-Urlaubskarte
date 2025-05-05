@@ -50,3 +50,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ruft die Funktion auf, um 7 Sterne zu erstellen
   createStars(7);
 });
+
+const container = document.getElementById("palmTree-container");
+
+  function createTrees(count) {
+    
+    for (let i = 0; i < count; i++) {
+
+      const tree = document.createElement("a-plane");
+
+      // Setzt das Bild (Textur) für den Stern
+      tree.setAttribute("src", "#starImg");
+
+      // Setzt die Größe des Sterns
+      tree.setAttribute("width", "0.3");
+      tree.setAttribute("height", "0.3");
+
+      // Aktiviert Transparenz (für PNG mit transparentem Hintergrund)
+      tree.setAttribute("transparent", "true");
+      container.appendChild(tree);
+    }}
+
+    createTrees(2);
