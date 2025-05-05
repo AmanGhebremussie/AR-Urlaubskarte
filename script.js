@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Holt das <a-entity>-Element mit der ID "stars-container", in dem die Sterne platziert werden sollen
   const container = document.getElementById("stars-container");
+  const palmContainer = document.getElementById("palmTree-container");
 
   // Funktion, die eine bestimmte Anzahl von Sternen erstellt
   function createStars(count) {
@@ -46,29 +47,25 @@ document.addEventListener("DOMContentLoaded", () => {
       container.appendChild(star);
     }
   }
-
-  // Ruft die Funktion auf, um 7 Sterne zu erstellen
   createStars(7);
-});
-
-const container = document.getElementById("palmTree-container");
-
-  function createTrees(count) {
-    
-    for (let i = 0; i < count; i++) {
-
-      const tree = document.createElement("a-plane");
-
-      // Setzt das Bild (Textur) für den Stern
-      tree.setAttribute("src", "#starImg");
-
-      // Setzt die Größe des Sterns
-      tree.setAttribute("width", "0.3");
-      tree.setAttribute("height", "0.3");
-
-      // Aktiviert Transparenz (für PNG mit transparentem Hintergrund)
-      tree.setAttribute("transparent", "true");
-      container.appendChild(tree);
-    }}
-
-    createTrees(2);
+  
+    // Linke Palme
+    const palmLeft = document.createElement("a-plane");
+    palmLeft.setAttribute("src", "#palmTreeImg");
+    palmLeft.setAttribute("width", "0.8");
+    palmLeft.setAttribute("height", "1.2");
+    palmLeft.setAttribute("transparent", "true");
+    palmLeft.setAttribute("position", "-0.6 0.6 0");  // links
+    palmLeft.setAttribute("rotation", "0 0 0");
+    palmContainer.appendChild(palmLeft);
+  
+    // Rechte Palme
+    const palmRight = document.createElement("a-plane");
+    palmRight.setAttribute("src", "#palmTreeImg");
+    palmRight.setAttribute("width", "0.8");
+    palmRight.setAttribute("height", "1.2");
+    palmRight.setAttribute("transparent", "true");
+    palmRight.setAttribute("position", "0.6 0.6 0");  // rechts
+    palmRight.setAttribute("rotation", "0 0 0");
+    palmContainer.appendChild(palmRight);
+  });
