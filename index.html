@@ -8,20 +8,16 @@
     <script src="script.js" defer></script>
   </head>
 
-    <body style="margin: 0; overflow: hidden;">
-
+  <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
-      
       <!-- Hier wird die Bilddatei vorgeladen -->
       <a-assets>
         <img id="starImg" src="https://amanghebremussie.github.io/AR-Urlaubskarte/2beacba73c69371c1acc82d9cf2d6424.png">
         <img id="palmTreeImg" src="https://amanghebremussie.github.io/AR-Urlaubskarte/30fba828aee40606140ea372dc42ae45.png">
-
       </a-assets>
   
       <!-- Marker-Erkennung: Dieses Element aktiviert AR-Inhalte, wenn der "Hiro"-Marker erkannt wird. -->
       <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
-      
         <a-plane 
           color="blue" 
           material="transparent: true; opacity: 0.8" 
@@ -31,15 +27,13 @@
           rotation="-90 0 0">
         </a-plane>
         
-        <!-- Container-Element, indem die Sterne eingefügt werden. -->
+        <!-- Container-Element, in dem die Sterne und Palmen eingefügt werden -->
         <a-entity id="stars-container"></a-entity>
         <a-entity id="palmTree-container"></a-entity>
-  
       </a-marker>
   
-      <!-- Kamera für die AR-Szene. Wird benötigt, damit AR.js das Bild der Webcam mit Marker-Erkennung verarbeitet. -->
+      <!-- Kamera für die AR-Szene -->
       <a-entity camera></a-entity>
-  
     </a-scene>
   </body>
-  
+</html>

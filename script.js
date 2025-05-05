@@ -1,71 +1,55 @@
-// Wenn die komplette HTML-Seite fertig geladen ist, wird der folgende Code ausgeführt
 document.addEventListener("DOMContentLoaded", () => {
-
-  // Holt das <a-entity>-Element mit der ID "stars-container", in dem die Sterne platziert werden sollen
   const container = document.getElementById("stars-container");
   const palmContainer = document.getElementById("palmTree-container");
 
-  // Funktion, die eine bestimmte Anzahl von Sternen erstellt
+  // Funktion, die Sterne erstellt
   function createStars(count) {
-    // Schleife, die 'count' Sterne erzeugt (z.B. 7)
     for (let i = 0; i < count; i++) {
-
-      // Erstellt ein neues <a-plane>-Element (2D-Fläche) für einen Stern
       const star = document.createElement("a-plane");
-
-      // Setzt das Bild (Textur) für den Stern
       star.setAttribute("src", "#starImg");
-
-      // Setzt die Größe des Sterns
       star.setAttribute("width", "0.3");
       star.setAttribute("height", "0.3");
-
-      // Aktiviert Transparenz (für PNG mit transparentem Hintergrund)
       star.setAttribute("transparent", "true");
 
-      // Berechnet eine zufällige Position über dem Marker
-      const x = (Math.random() - 0.5) * 1.5;  // links/rechts zufällig
-      const y = Math.random() * 1 + 0.5;      // etwas oberhalb des Markers
-      const z = (Math.random() - 0.5) * 1.5;  // vorne/hinten zufällig
+      // Zufällige Position der Sterne
+      const x = (Math.random() - 0.5) * 1.5;
+      const y = Math.random() * 1 + 0.5;
+      const z = (Math.random() - 0.5) * 1.5;
 
-      // Setzt die Position des Sterns im 3D-Raum
       star.setAttribute("position", `${x} ${y} ${z}`);
-
-      // Sorgt dafür, dass der Stern sich immer zur Kamera ausrichtet
       star.setAttribute("look-at", "[camera]");
 
-      // Fügt eine schwebende Animation auf der Y-Achse hinzu
       star.setAttribute("animation__float", {
-        property: "position",       // animiert die Position
-        dir: "alternate",           // bewegt sich hin und her
-        dur: 2000,                  // duration: 2 Sekunden
-        loop: true,                 // Endlosschleife
-        to: `${x} ${y + 0.4} ${z}`  // der X-Wert als String, Y wird um die Zahl nach dem Plus nach oben gesetzt.
+        property: "position",
+        dir: "alternate",
+        dur: 2000,
+        loop: true,
+        to: `${x} ${y + 0.4} ${z}`
       });
 
-      // Fügt den Stern dem Container über dem Marker hinzu
       container.appendChild(star);
     }
   }
-  createStars(7);
-  
-    // Linke Palme
-    const palmLeft = document.createElement("a-plane");
-    palmLeft.setAttribute("src", "#palmTreeImg");
-    palmLeft.setAttribute("width", "0.8");
-    palmLeft.setAttribute("height", "1.2");
-    palmLeft.setAttribute("transparent", "true");
-    palmLeft.setAttribute("position", "-0.6 0.6 0");  // links
-    palmLeft.setAttribute("rotation", "0 0 0");
-    palmContainer.appendChild(palmLeft);
-  
-    // Rechte Palme
-    const palmRight = document.createElement("a-plane");
-    palmRight.setAttribute("src", "#palmTreeImg");
-    palmRight.setAttribute("width", "0.8");
-    palmRight.setAttribute("height", "1.2");
-    palmRight.setAttribute("transparent", "true");
-    palmRight.setAttribute("position", "0.6 0.6 0");  // rechts
-    palmRight.setAttribute("rotation", "0 0 0");
-    palmContainer.appendChild(palmRight);
-  });
+
+  // Linke Palme
+  const palmLeft = document.createElement("a-plane");
+  palmLeft.setAttribute("src", "#palmTreeImg");
+  palmLeft.setAttribute("width", "0.8");
+  palmLeft.setAttribute("height", "1.2");
+  palmLeft.setAttribute("transparent", "true");
+  palmLeft.setAttribute("position", "-0.6 0.6 0");
+  palmLeft.setAttribute("rotation", "0 0 0");
+  palmContainer.appendChild(palmLeft);
+
+  // Rechte Palme
+  const palmRight = document.createElement("a-plane");
+  palmRight.setAttribute("src", "#palmTreeImg");
+  palmRight.setAttribute("width", "0.8");
+  palmRight.setAttribute("height", "1.2");
+  palmRight.setAttribute("transparent", "true");
+  palmRight.setAttribute("position", "0.6 0.6 0");
+  palmRight.setAttribute("rotation", "0 0 0");
+  palmContainer.appendChild(palmRight);
+
+  createStars(7); // Fügt 7 Sterne hinzu
+});
