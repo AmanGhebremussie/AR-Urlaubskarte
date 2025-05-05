@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       star.setAttribute("animation__float", {
         property: "position",
-        dir: "alternate",
-        dur: 2000,
-        loop: true,
-        to: `${x} ${y + 0.4} ${z}`
+        dir: "alternate",   
+        dur: 2000,    // duration: 2 Sekunden
+        loop: true,   // endlosloop
+        to: `${x} ${y + 0.4} ${z}`  // der X-Wert wird gleichgelassen, Der Y-Wert wird in der String um die Zahl nach dem Plus nach oben gesetzt.
       });
 
       container.appendChild(star);
@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Rechte Palme
   const palmRight = document.createElement("a-plane");
-  palmRight.setAttribute("src", "#palmTreeImg");
+  palmRight.setAttribute("src", "#palmTreeImg");  // setzt das Bild für die Palme
   palmRight.setAttribute("width", "0.8");
-  palmRight.setAttribute("height", "1.2");
-  palmRight.setAttribute("transparent", "true");
-  palmRight.setAttribute("position", "0.6 0.6 0");
+  palmRight.setAttribute("height", "1.2");  
+  palmRight.setAttribute("transparent", "true");  // Transparenz
+  palmRight.setAttribute("position", "0.6 0.6 0");  // Position nach Rechts
   palmRight.setAttribute("rotation", "0 0 0");
   palmContainer.appendChild(palmRight);
 
