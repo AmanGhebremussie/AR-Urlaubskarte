@@ -11,23 +11,30 @@
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
+
+        <!-- Assets für das Modell -->
+      <a-assets>
+        <a-asset id="island-model" src="https://amanghebremussie.github.io/AR-Urlaubskarte/scene.gltf"></a-asset>
+      </a-assets>
       
               <!-- Bild für Stern-Textur -->
       <a-assets>
         <img id="starImg" src="2beacba73c69371c1acc82d9cf2d6424.png">
       </a-assets>
 
+      <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-marker.patt">
+      <!-- GLTF Modell hinzufügen -->
+      <a-entity
+      gltf-model="#island-model"
+      scale="2 2 2"
+      position="0 0 0"
+      rotation="0 0 0">
+    </a-entity>
+
       <!-- Marker -->
       <a-marker type="pattern" url="https://raw.githubusercontent.com/AmanGhebremussie/AR-Urlaubskarte/main/pattern-Hiro_marker_ARjs.patt">
               
-        <!-- 3D Modell (GLB) hinzufügen -->
-        <a-entity
-          gltf-model="url(https://amanghebremussie.github.io/AR-Urlaubskarte/low_poly_island.glb)"
-          scale="2 2 2"
-          position="0 0 0"
-          rotation="0 0 0">
-        </a-entity>
-        
+
         <!-- Zentrale Fläche (deine Karte) -->
         <a-plane color="blue" material= "transparent: true; opacity: 0.8" height="1" width="1" position="0 0 0" rotation="-90 0 0"></a-plane>
         
